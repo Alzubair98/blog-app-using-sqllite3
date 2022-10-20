@@ -15,7 +15,8 @@
 
       <td><%= a.title %></td>
       <td><%= a.description %></td>
-      <td><%= a.title %></td>
+      <td><%= link_to 'show', article_path(a) %></td>
+      <td><%= link_to 'Delete', article_path(a), data: { turbo_method: "delete" } %></td>
     </tr>
     <% end %>
   </tbody>
