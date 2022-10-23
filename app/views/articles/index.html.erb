@@ -5,19 +5,23 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Action</th>
+      <th colspan="3">Action</th> <%# //to center the Action word %>
     </tr>
   </thead>
 
   <tbody>
     <% @articles.each do |a| %>
     <tr>
-
       <td><%= a.title %></td>
       <td><%= a.description %></td>
-      <td><%= link_to 'show', article_path(a) %></td>
-      <td><%= link_to 'Delete', article_path(a), data: { turbo_method: "delete" } %></td>
+      <td><%= link_to 'Show', article_path(a) %></td>
+      <td><%= link_to 'Edit', edit_article_path(a) %></td>
+      <td><%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } %></td>
     </tr>
     <% end %>
   </tbody>
-</table>
+</table> <br />
+<br />
+
+<%= link_to "Create New Article", new_article_path %> |
+<%= link_to "Home", root_path %>

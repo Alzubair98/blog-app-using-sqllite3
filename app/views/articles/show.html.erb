@@ -2,3 +2,7 @@
 
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description:</strong> <%= @article.description %> </p>
+
+<%= link_to 'Articles', articles_path%> |
+<%= link_to 'Edit', edit_article_path %> |
+<%= link_to 'Delete', article_path, data: { turbo_method: "delete" , turbo_confirm: "Are you sure to delete" } %>
