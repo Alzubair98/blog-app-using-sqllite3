@@ -42,3 +42,13 @@ html,body{
 #sticky-footer {
     flex-shrink: none;
 }
+
+.copy-right{
+    text-decoration: none;
+}
+
+.button-cont{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}

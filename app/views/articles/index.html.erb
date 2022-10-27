@@ -1,27 +1,31 @@
-<h1>Articles listing page</h1>
+<div id="page-content">
+  <h1 class=" text-center mt-4">All Articles</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3">Action</th> <%# //to center the Action word %>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="container">
     <% @articles.each do |a| %>
-    <tr>
-      <td><%= a.title %></td>
-      <td><%= a.description %></td>
-      <td><%= link_to 'Show', article_path(a) %></td>
-      <td><%= link_to 'Edit', edit_article_path(a) %></td>
-      <td><%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table> <br />
-<br />
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow-lg mb-5 bg-white rounded">
+          <div class="card-header fst-italic">
+            By Alzubair
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to a.title, article_path(a), class: "copy-right text-success" %></h5>
+            <p class="card-text"><%= truncate(a.description, length:100) %></p>
+            <%= link_to 'View', article_path(a), class: "btn btn-outline-success" %>
+            <%= link_to 'Edit', edit_article_path(a) ,class: "btn btn-outline-primary"%>
+            <%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+          </div>
+          <div class="card-footer text-muted">
+            <p> created_at <%= a.created_at %>, updated_at <%= a.updated_at %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
 
-<%= link_to "Create New Article", new_article_path %> |
-<%= link_to "Home", root_path %>
+  <div class="button-cont">
+    <%= link_to "Create New Article", new_article_path, class: "btn btn-primary" %>
+  </div>
+</div>
