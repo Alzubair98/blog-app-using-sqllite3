@@ -17,7 +17,7 @@
             <%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
           </div>
           <div class="card-footer text-muted">
-            <p> created <%= time_ago_in_words (a.created_at) %> ago, updated <%= time_ago_in_words(a.updated_at) %> ago </p>
+            <p> created <%= time_ago_in_words(a.created_at) %> ago, updated <%= time_ago_in_words(a.updated_at) %> ago </p>
           </div>
         </div>
       </div>
