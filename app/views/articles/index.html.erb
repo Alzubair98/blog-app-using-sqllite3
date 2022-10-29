@@ -1,31 +1,29 @@
-<div id="page-content">
-  <h1 class=" text-center mt-4">All Articles</h1>
+<h1 class=" text-center mt-4">All Articles</h1>
 
-  <div class="container">
-    <% @articles.each do |a| %>
-    <div class="row justify-content-md-center">
-      <div class="col-8 mt-4">
-        <div class="card text-center shadow-lg mb-5 bg-white rounded">
-          <div class="card-header fst-italic">
-            By Alzubair
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to a.title.capitalize, article_path(a), class: "copy-right text-success" %></h5>
-            <p class="card-text"><%= truncate(a.description, length:100) %></p>
-            <%= link_to 'View', article_path(a), class: "btn btn-outline-success" %>
-            <%= link_to 'Edit', edit_article_path(a) ,class: "btn btn-outline-primary"%>
-            <%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-          </div>
-          <div class="card-footer text-muted">
-            <p> created <%= time_ago_in_words(a.created_at) %> ago, updated <%= time_ago_in_words(a.updated_at) %> ago </p>
-          </div>
+<div class="container">
+  <% @articles.each do |a| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow-lg mb-5 bg-white rounded">
+        <div class="card-header fst-italic">
+          By Alzubair
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to a.title.capitalize, article_path(a), class: "copy-right text-success" %></h5>
+          <div class="card-text"><%= simple_format(truncate(a.description, length:100)) %></div>
+          <%= link_to 'View', article_path(a), class: "btn btn-outline-success" %>
+          <%= link_to 'Edit', edit_article_path(a) ,class: "btn btn-outline-primary"%>
+          <%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+        </div>
+        <div class="card-footer text-muted">
+          <p> created <%= time_ago_in_words(a.created_at) %> ago, updated <%= time_ago_in_words(a.updated_at) %> ago </p>
         </div>
       </div>
     </div>
-    <%end%>
   </div>
+  <%end%>
+</div>
 
-  <div class="button-cont">
-    <%= link_to "Create New Article", new_article_path, class: "btn btn-outline-dark" %>
-  </div>
+<div class="button-cont">
+  <%= link_to "Create New Article", new_article_path, class: "btn btn-outline-dark" %>
 </div>

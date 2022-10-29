@@ -1,21 +1,19 @@
-<div id="page-content">
-  <h1 class=" text-center mt-4 text-success"><%=@article.title.capitalize%></h1>
+<h1 class=" text-center mt-4 text-success"><%=@article.title.capitalize%></h1>
 
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-8 mt-4">
-        <div class="card text-center shadow-lg mb-5 bg-white rounded">
-          <div class="card-header fst-italic">
-            By Alzubair
-          </div>
-          <div class="card-body">
-            <div class="card-text"><%= simple_format(@article.description) %></div>
-            <%= link_to 'Edit', edit_article_path ,class: "btn btn-outline-primary"%>
-            <%= link_to 'Delete', article_path, data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-          </div>
-          <div class="card-footer text-muted">
-            <p> created <%= time_ago_in_words(@article.created_at) %> ago, updated <%= time_ago_in_words(@article.updated_at) %> ago </p>
-          </div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow-lg mb-5 bg-white rounded">
+        <div class="card-header fst-italic">
+          By Alzubair
+        </div>
+        <div class="card-body">
+          <div class="card-text"><%= simple_format(@article.description) %></div>
+          <%= link_to 'Edit', edit_article_path ,class: "btn btn-outline-primary"%>
+          <%= link_to 'Delete', article_path, data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+        </div>
+        <div class="card-footer text-muted">
+          <p> created <%= time_ago_in_words(@article.created_at) %> ago, updated <%= time_ago_in_words(@article.updated_at) %> ago </p>
         </div>
       </div>
     </div>
