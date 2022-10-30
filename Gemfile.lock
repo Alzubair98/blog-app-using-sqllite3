@@ -70,6 +70,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+    bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
@@ -226,6 +227,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   bootstrap (~> 5.2)
   capybara
