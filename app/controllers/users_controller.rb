@@ -13,9 +13,26 @@ class UsersController < ApplicationController
       end
     end
 
+    def edit 
+      set_user
+    end
+
+    def update 
+      set_user 
+      if @user.update(user_params)
+        flash[:notice] = "User was updated"
+        redirect_to articles_path
+      else 
+        render 'edit'
+      end
+    end
 
 
     private
+
+    def set_user
+      @user = User.find(params[:id])
+    end
     def user_params
       params.require(:user).permit(:username, :email, :password_digest)
     end
