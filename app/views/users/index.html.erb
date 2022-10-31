@@ -1,0 +1,24 @@
+<h1 class="text-center mt-4">All users</h1>
+
+<div class="container">
+  <% @users.each do |u| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow-lg mb-5 bg-white rounded">
+        <div class="card-header fst-italic">
+          <%= link_to u.username.capitalize, user_path(u), class: "copy-right" %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to  gravatar_for(u, size:150), user_path(u) %></h5>
+          <div class="card-text"><%= pluralize(u.articles.count, "article") %></div>
+          <%= link_to 'View profile', user_path(u), class: "btn btn-outline-success" %>
+          <%= link_to 'Edit', edit_user_path(u) ,class: "btn btn-outline-primary"%>
+        </div>
+        <div class="card-footer text-muted">
+          <p> Joined <%= time_ago_in_words(u.created_at) %> ago</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
