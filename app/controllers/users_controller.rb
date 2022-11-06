@@ -30,12 +30,11 @@ class UsersController < ApplicationController
       set_user 
       if @user.update(user_params)
         flash[:notice] = "User was updated"
-        redirect_to articles_path
+        redirect_to @user
       else 
         render 'edit'
       end
     end
-
 
     private
 
