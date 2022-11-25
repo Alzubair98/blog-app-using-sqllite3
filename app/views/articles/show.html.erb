@@ -5,7 +5,7 @@
     <div class="col-8 mt-4">
       <div class="card text-center shadow-lg mb-5 bg-white rounded">
         <div class="card-header fst-italic">
-          by <%=@article.user.username.capitalize%>
+          by <%= link_to @article.user.username.capitalize, user_path(@article.user) , class:"copy-right"%>
         </div>
         <div class="card-body">
           <div class="card-text"><%= simple_format(@article.description) %></div>
