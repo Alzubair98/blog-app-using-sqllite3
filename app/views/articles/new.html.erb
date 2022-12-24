@@ -1,3 +1,9 @@
+<%if logged_in?%>
 <h1 class="text-center mt-4"> Create new article</h1>
 
 <%= render 'form'%>
+<%else%>
+<div class="text-center mt-4" class="text-center mt-4">
+  <h1>NICE TRY MATE :), BUT YOU HAVE TO LOG IN</h1>
+</div>
+<%end%>

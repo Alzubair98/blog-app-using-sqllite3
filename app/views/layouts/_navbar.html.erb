@@ -14,7 +14,9 @@
             Articles
           </a>
           <ul class="dropdown-menu">
+            <%if logged_in?%>
             <li><%= link_to "New Article" , new_article_path, class: "dropdown-item" %></li>
+            <%end%>
             <li><%= link_to "All Articles", articles_path , class:"dropdown-item" %></li>
           </ul>
         </li>

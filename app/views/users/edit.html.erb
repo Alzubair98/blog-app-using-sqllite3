@@ -1,2 +1,6 @@
+<%if logged_in? && @user == current_user%>
 <h1 class='text-center mt-4'>Edit User</h1>
 <%= render 'form'%>
+<%else%>
+<h1>wait WTF are you doing?</h1>
+<%end%>
