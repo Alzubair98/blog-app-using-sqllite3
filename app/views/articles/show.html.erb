@@ -9,8 +9,10 @@
         </div>
         <div class="card-body">
           <div class="card-text"><%= simple_format(@article.description) %></div>
+          <%if logged_in? && @article.user == current_user%>
           <%= link_to 'Edit', edit_article_path ,class: "btn btn-outline-primary"%>
           <%= link_to 'Delete', article_path, data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+          <%end%>
         </div>
         <div class="card-footer text-muted">
           <p> created <%= time_ago_in_words(@article.created_at) %> ago, updated <%= time_ago_in_words(@article.updated_at) %> ago </p>
