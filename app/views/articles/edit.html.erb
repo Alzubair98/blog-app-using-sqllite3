@@ -1,2 +1,6 @@
+<%if logged_in? && @article.user == current_user%>
 <h1 class="text-center mt-4"> Edit article</h1>
 <%= render 'form'%>
+<%else%>
+<h1>bro we are programmers not idots !!</h1>
+<%end%>

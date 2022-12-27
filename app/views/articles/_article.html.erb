@@ -10,8 +10,11 @@
           <h5 class="card-title"><%= link_to a.title.capitalize, article_path(a), class: "copy-right text-success" %></h5>
           <div class="card-text"><%= simple_format(truncate(a.description, length:100)) %></div>
           <%= link_to 'View', article_path(a), class: "btn btn-outline-success" %>
+          <% if logged_in? && a.user == current_user%>
           <%= link_to 'Edit', edit_article_path(a) ,class: "btn btn-outline-primary"%>
           <%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+
+          <%end%>
         </div>
         <div class="card-footer text-muted">
           <p> created <%= time_ago_in_words(a.created_at) %> ago, updated <%= time_ago_in_words(a.updated_at) %> ago </p>
