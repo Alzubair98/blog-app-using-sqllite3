@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   # we can use before_action method just like that 
-  # before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :delete]
+
   
     def show 
-      set_user
       @articles = @user.articles.paginate(page: params[:page], per_page: 5)
     end
 
@@ -28,11 +30,9 @@ class UsersController < ApplicationController
     end
 
     def edit 
-      set_user
     end
 
     def update 
-      set_user 
       if @user.update(user_params)
         flash[:notice] = "User was updated"
         redirect_to @user
@@ -49,6 +49,13 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:username, :email, :password)
+    end
+
+    def require_same_user 
+      if current_user != @user 
+        flash[:alert] = "you can only edit/delete your own account "
+        redirect_to @user
+      end
     end
   end
   
