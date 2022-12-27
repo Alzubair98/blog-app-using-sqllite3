@@ -1,4 +1,4 @@
-<%if logged_in? && @article.user == current_user%>
+<%if logged_in? && (@article.user == current_user || current_user.admin?)%>
 <h1 class="text-center mt-4"> Edit article</h1>
 <%= render 'form'%>
 <%else%>
