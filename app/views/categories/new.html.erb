@@ -1,7 +1,8 @@
 <h1 class='text-center mt-4'>Create new Category</h1>
 
-<%# <%= render 'shared/errors', obj: @user %>
-<%= form_with(model: @category, local:true) do |f| %>
+<%# <%= render 'shared/errors', obj: @category %> %>
+
+<%= form_with(model: @category, local:true)  do |f| %>
 <div class="container">
   <div class=" form-group">
     <%= f.label :name, 'Category name' %><br />
