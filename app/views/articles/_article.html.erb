@@ -5,7 +5,14 @@
       <div class="card text-center shadow-lg mb-5 bg-white rounded">
         <div class="card-header fst-italic">
           by <%= link_to a.user.username.capitalize, user_path(a.user), class: "copy-right"%>
+          <br />
+          <% if a.categories.any? %>
+          <div class="mt-2">
+            <%= render a.categories %>
+          </div>
+          <%end%>
         </div>
+
         <div class="card-body">
           <h5 class="card-title"><%= link_to a.title.capitalize, article_path(a), class: "copy-right text-success" %></h5>
           <div class="card-text"><%= simple_format(truncate(a.description, length:100)) %></div>
@@ -13,7 +20,6 @@
           <% if logged_in? && (a.user == current_user || current_user.admin?)%>
           <%= link_to 'Edit', edit_article_path(a) ,class: "btn btn-outline-primary"%>
           <%= link_to 'Delete', article_path(a), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-
           <%end%>
         </div>
         <div class="card-footer text-muted">

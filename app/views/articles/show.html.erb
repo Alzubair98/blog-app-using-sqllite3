@@ -6,6 +6,12 @@
       <div class="card text-center shadow-lg mb-5 bg-white rounded">
         <div class="card-header fst-italic">
           by <%= link_to @article.user.username.capitalize, user_path(@article.user) , class:"copy-right"%>
+          <br />
+          <% if @article.categories.any? %>
+          <div class="mt-2">
+            <%= render @article.categories %>
+          </div>
+          <%end%>
         </div>
         <div class="card-body">
           <div class="card-text"><%= simple_format(@article.description) %></div>

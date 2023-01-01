@@ -1,0 +1,14 @@
+<%# <%= render 'shared/errors', obj: @category %>
+
+<%= form_with(model: @category, local:true)  do |f| %>
+<div class="container">
+  <div class=" form-group">
+    <%= f.label :name, 'Category name' %><br />
+    <%= f.text_field :name , class:"form-control" , placeholder: 'Enter a name'%>
+  </div>
+
+  <div class="submit-button">
+    <%= f.submit class: "btn btn-outline-dark btn-lg" %>
+  </div>
+</div>
+<% end %>
