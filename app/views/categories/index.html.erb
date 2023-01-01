@@ -7,6 +7,7 @@
       <div class="card text-center shadow-lg mb-5 bg-white rounded">
         <div class="card-body">
           <h5 class="card-title"><%= link_to category.name.capitalize, category_path(category), class: "copy-right text-success" %></h5>
+          <p class="card-text"><%= pluralize(category.articles.count, "article") %></p>
         </div>
         <div class="card-footer text-muted">
           <p> created <%= time_ago_in_words(category.created_at) %> ago, updated <%= time_ago_in_words(category.updated_at) %> ago </p>
